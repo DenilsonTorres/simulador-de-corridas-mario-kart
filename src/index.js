@@ -19,12 +19,20 @@ async function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-// Iniciar corrida
+// Motor Principal
+async function playRaceEngine(character1, character2) {
+  for (let round = 1; round <= 5; round++) {
+    console.log(`🏁 Rodada ${round} `);
+  }
 
+  // Sortear Bloco
+}
+
+// Iniciar corrida
 (async function main() {
-  // Função auto-invocavel
   console.log(
     `🏁🚨 Corrida entre ${player1.PERSONAGEM} e ${player2.PERSONAGEM} começando... \n`
   );
+  await playRaceEngine(player1, player2);
 })();
 // main();
