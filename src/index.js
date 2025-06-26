@@ -18,3 +18,13 @@ const player2 = {
 async function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
+
+// Iniciar corrida
+
+(async function main() {
+  // Função auto-invocavel
+  console.log(
+    `🏁🚨 Corrida entre ${player1.PERSONAGEM} e ${player2.PERSONAGEM} começando... \n`
+  );
+})();
+// main();
