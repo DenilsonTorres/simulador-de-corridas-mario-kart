@@ -1,3 +1,4 @@
+// Personagens
 const player1 = {
   PERSONAGEM: "Mario",
   VELOCIDADE: 4,
@@ -12,3 +13,8 @@ const player2 = {
   PODER: 4,
   PONTOS: 0,
 };
+
+// Rolar dados:
+async function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
