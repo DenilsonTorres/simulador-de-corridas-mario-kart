@@ -46,6 +46,14 @@ async function playRaceEngine(character1, character2) {
     let block = await getRandomBlock();
     console.log(`Bloco: ${block}`);
   }
+
+  // Rolar os dados
+  let diceResult1 = await rollDice();
+  let diceResult2 = await rollDice();
+
+  // Teste de Habilidades
+  let totalTesteSkill1 = 0;
+  let totalTesteSkill2 = 0;
 }
 
 // Iniciar corrida
