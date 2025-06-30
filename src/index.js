@@ -116,11 +116,18 @@ async function playRaceEngine(character1, character2) {
         character2.PODER
       );
 
-      character2.PONTOS -=
-        powerResult1 > powerResult2 && character2.PONTOS > 0 ? 1 : 0;
-
-      character1.PONTOS -=
-        powerResult2 > powerResult1 && character1.PONTOS > 0 ? 1 : 0;
+      if (powerResult1 > powerResult2 && character2.PONTOS > 0) {
+        console.log(
+          `${character1.PERSONAGEM} venceu o confronto! ${character2.PERSONAGEM} perdeu 1 ponto 🐢..`
+        );
+        character2.PONTOS--;
+      }
+      if (powerResult2 > powerResult1 && character1.PONTOS > 0) {
+        console.log(
+          `${character2.PERSONAGEM} venceu o confronto! ${character1.PERSONAGEM} perdeu 1 ponto 🐢..`
+        );
+        character1.PONTOS--;
+      }
 
       console.log(
         powerResult2 === powerResult1
@@ -140,11 +147,24 @@ async function playRaceEngine(character1, character2) {
   }
 }
 
+async function declareWinner(character1, character2) {
+  console.log("Resultado Final:");
+  console.log(`${character1.PERSONAGEM}: ${character1.PONTOS}`);
+  console.log(`${character2.PERSONAGEM}: ${character2.PONTOS}`);
+
+  if (character1.PONTOS > character2.PONTOS)
+    console.log(`\n${character1.PERSONAGEM} venceu a corrida! Parabéns!! 🏆`);
+  else if (character2.PONTOS > character1.PONTOS)
+    console.log(`\n${character2.PERSONAGEM} venceu a corrida! Parabéns!! 🏆`);
+  else console.log("A Corrida terminou em Empate!");
+}
+
 // Iniciar corrida
 (async function main() {
   console.log(
     `🏁🚨 Corrida entre ${player1.PERSONAGEM} e ${player2.PERSONAGEM} começando... \n`
   );
   await playRaceEngine(player1, player2);
+  await declareWinner(player1, player2);
 })();
 // main();
